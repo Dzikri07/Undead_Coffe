@@ -444,210 +444,7 @@
 
 
 
-<script>
-  const cart = [];
-  const cartItemsContainer = document.getElementById("cart-items");
-  const cartTotalElement = document.getElementById("cart-total");
 
-  
-  document.querySelectorAll(".product-card button").forEach(button => {
-    button.addEventListener("click", (e) => {
-      const card = e.target.closest(".product-card");
-      const name = card.querySelector("h6").textContent;
-  
-      // Ambil harga dari <strong>, kalau gak ada ambil dari <p>
-      const strongEl = card.querySelector("strong");
-      const pEl = card.querySelector("p");
-  
-      const priceText = strongEl?.textContent || pEl?.textContent || "Rp 0";
-      const price = extractPrice(priceText);
-  
-      cart.push({ name, price });
-      updateCart();
-    });
-  });
-  
-  
-
-  document.addEventListener('click', function (e) {
-    if (e.target.matches('.product-card button')) {
-      const card = e.target.closest('.product-card');
-      const name = card.querySelector('h6')?.textContent || "Produk";
-      const price = card.querySelector('p')?.textContent || "Rp. 0";
-  
-      console.log('Tambah ke cart:', name, price);
-      // tambahkan ke cart di sini
-    }
-  });
-  
-  function extractPrice(text) {
-    const match = text.match(/Rp\.?\s?([\d.]+)/i);
-    if (match && match[1]) {
-      return parseInt(match[1].replace(/\./g, ""));
-    }
-    return 0;
-  }
-  
-
-  function updateCart() {
-    cartItemsContainer.innerHTML = "";
-    let total = 0;
-  
-    cart.forEach((item, index) => {
-      const li = document.createElement("li");
-      li.className = "list-group-item d-flex justify-content-between align-items-center";
-  
-      const itemInfo = document.createElement("span");
-      itemInfo.textContent = item.name;
-  
-      const rightSide = document.createElement("div");
-      rightSide.className = "d-flex align-items-center gap-2";
-  
-      const priceSpan = document.createElement("span");
-      priceSpan.textContent = `Rp ${item.price.toLocaleString("id-ID")}`;
-  
-      const deleteBtn = document.createElement("button");
-      deleteBtn.className = "btn btn-sm btn-danger";
-      deleteBtn.innerHTML = "❌";
-      deleteBtn.onclick = () => {
-        cart.splice(index, 1);  // hapus item dari array
-        updateCart();           // refresh tampilan
-      };
-  
-      rightSide.appendChild(priceSpan);
-      rightSide.appendChild(deleteBtn);
-  
-      li.appendChild(itemInfo);
-      li.appendChild(rightSide);
-  
-      cartItemsContainer.appendChild(li);
-      total += item.price;
-    });
-  
-    cartTotalElement.textContent = total.toLocaleString("id-ID");
-  }
-  function addToCart(productName, productPrice, buttonElement) {
-    cart.push({ name: productName, price: productPrice });
-    updateCart();
-    showFlyToCart(buttonElement);
-  }
-  function showFlyToCart(sourceElement) {
-    const flyIcon = document.createElement("div");
-    flyIcon.className = "fly-icon";
-    flyIcon.textContent = "☕";
-  
-    document.body.appendChild(flyIcon);
-  
-    const rectStart = sourceElement.getBoundingClientRect();
-    const cartBtn = document.getElementById("cart-btn");
-    const rectEnd = cartBtn.getBoundingClientRect();
-  
-    flyIcon.style.left = rectStart.left + "px";
-    flyIcon.style.top = rectStart.top + "px";
-  
-    setTimeout(() => {
-      flyIcon.style.transform = `translate(${rectEnd.left - rectStart.left}px, ${rectEnd.top - rectStart.top}px) scale(0.2)`;
-      flyIcon.style.opacity = 0;
-    }, 10);
-  
-    setTimeout(() => {
-      flyIcon.remove();
-      cartBtn.classList.add("shake-cart");
-      setTimeout(() => {
-        cartBtn.classList.remove("shake-cart");
-      }, 500);
-    }, 800);
-  }
-document.addEventListener('click', function (e) {
-  if (e.target.matches('.product-card button')) {
-    const card = e.target.closest('.product-card');
-    const name = card.querySelector('h6')?.textContent || "Produk";
-    const price = card.querySelector('p')?.textContent || "Rp. 0";
-
-    console.log('Tambah ke cart:', name, price);
-    // tambahkan ke cart di sini
-  }
-});
-
-
-  
-</script>
-
-
-  <!-- JS Kategori Toggle -->
-  <script>
-    const categoryButtons = document.querySelectorAll('.category-btn');
-    const subcategoryButtons = document.querySelectorAll('.subcategory-btn'); // kalau kamu pake
-    const productCards = document.querySelectorAll('.product-card');
-    const pageCoffee = document.getElementById('page-coffee');
-    const pageDessert = document.getElementById('page-dessert');
-  
-    let activeCategory = null;
-    let activeSubcategory = null;
-  
-    // Fungsi untuk filter produk
-    function filterProducts() {
-      productCards.forEach(card => {
-        const cardCategory = card.dataset.category;
-        const cardSubcategory = card.dataset.subcategory;
-  
-        const matchCategory = !activeCategory || cardCategory === activeCategory;
-        const matchSubcategory = !activeSubcategory || cardSubcategory === activeSubcategory;
-  
-        card.style.display = (matchCategory && matchSubcategory) ? 'block' : 'none';
-      });
-    }
-  
-    // Handle klik kategori utama
-    categoryButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const selectedCategory = button.dataset.category;
-    
-        // Ganti active state
-        categoryButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-    
-        // Reset subkategori juga
-        subcategoryButtons.forEach(btn => btn.classList.remove('active'));
-        activeSubcategory = null;
-    
-        if (selectedCategory === 'all') {
-          // Show all
-          activeCategory = null;
-          pageCoffee.classList.remove('d-none');
-          pageDessert.classList.remove('d-none');
-        } else {
-          // Set kategori spesifik
-          activeCategory = selectedCategory;
-          pageCoffee.classList.toggle('d-none', selectedCategory !== 'coffee');
-          pageDessert.classList.toggle('d-none', selectedCategory !== 'dessert');
-        }
-    
-        filterProducts();
-      });
-    });
-    
-  
-    // Handle klik sub-kategori (jika kamu punya tombolnya)
-    subcategoryButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        activeSubcategory = button.dataset.subcategory;
-  
-        subcategoryButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-  
-        filterProducts();
-      });
-    });
-  
-    // Tambah ke cart (sementara console log dulu)
-    document.addEventListener('click', function (e) {
-      if (e.target.matches('.product-card button')) {
-        const card = e.target.closest('.product-card');
-        console.log('Tambah ke cart:', card.querySelector('h6')?.textContent || 'Produk');
-      }
-    });
-  </script>
     
 
 </section>
@@ -1027,63 +824,63 @@ Di Undead Espresso, kami menjaga warisan rasa itu. Cookies kami dibuat dari baha
       </div>
     </footer>
     <!-- JavaScript -->
-    <script>
-      const payBtn = document.getElementById("pay-btn");
-          const confirmBtn = document.getElementById("confirm-btn");
-          const qrSection = document.getElementById("qr-section");
-          const qrContainer = document.getElementById("qrcode");
-        
-          payBtn.addEventListener("click", () => {
-            const items = cart.map(item => `${item.name} x${item.qty}`).join(", ");
-            const total = cart.reduce((acc, item) => acc + item.price * item.qty, 0);
-            const qrText = `Undead Espresso\n${items}\nTotal: Rp ${total.toLocaleString()}`;
-        
-            // Clear previous QR
-            qrContainer.innerHTML = "";
-        
-            new QRCode(qrContainer, {
-              text: qrText,
-              width: 200,
-              height: 200,
-            });
-        
-            qrSection.classList.remove("d-none");
-            confirmBtn.classList.remove("d-none");
-            payBtn.disabled = true;
-          });
-          confirmBtn.addEventListener("click", () => {
-            // Tampilkan animasi sukses
-            const successAnim = document.getElementById("payment-success");
-            successAnim.classList.add("show");
-            successAnim.style.display = "block";
+      <script>
+        const payBtn = document.getElementById("pay-btn");
+            const confirmBtn = document.getElementById("confirm-btn");
+            const qrSection = document.getElementById("qr-section");
+            const qrContainer = document.getElementById("qrcode");
           
-            // Setelah animasi selesai, reset keranjang dan tutup modal
-            setTimeout(() => {
-              successAnim.classList.remove("show");
-              successAnim.style.display = "none";
+            payBtn.addEventListener("click", () => {
+              const items = cart.map(item => `${item.name} x${item.qty}`).join(", ");
+              const total = cart.reduce((acc, item) => acc + item.price * item.qty, 0);
+              const qrText = `Undead Espresso\n${items}\nTotal: Rp ${total.toLocaleString()}`;
           
-              Swal.fire({
-                icon: 'success',
-                title: 'Pesanan Dibayar!',
-                text: 'Silakan konfirmasi ke kasir.',
-                confirmButtonText: 'Oke',
-                timer: 3000,
-                timerProgressBar: true
-              });
+              // Clear previous QR
+              qrContainer.innerHTML = "";
               
-              qrSection.classList.add("d-none");
-              confirmBtn.classList.add("d-none");
-              payBtn.disabled = false;
-              document.getElementById("cartModal").click();
-              clearCart();
-            }, 100); // Biarkan animasi jalan 2 detik
-          });
+              new QRCode(qrContainer, {
+                text: qrText,
+                width: 200,
+                height: 200,
+              });
           
-        
-          function clearCart() {
-            cart = [];
-            updateCart();
-          }
+              qrSection.classList.remove("d-none");
+              confirmBtn.classList.remove("d-none");
+              payBtn.disabled = true;
+            });
+            confirmBtn.addEventListener("click", () => {
+              // Tampilkan animasi sukses
+              const successAnim = document.getElementById("payment-success");
+              successAnim.classList.add("show");
+              successAnim.style.display = "block";
+            
+              // Setelah animasi selesai, reset keranjang dan tutup modal
+              setTimeout(() => {
+                successAnim.classList.remove("show");
+                successAnim.style.display = "none";
+            
+                Swal.fire({
+                  icon: 'success',
+                  title: 'Pesanan Dibayar!',
+                  text: 'Silakan konfirmasi ke kasir.',
+                  confirmButtonText: 'Oke',
+                  timer: 3000,
+                  timerProgressBar: true
+                });
+                
+                qrSection.classList.add("d-none");
+                confirmBtn.classList.add("d-none");
+                payBtn.disabled = false;
+                document.getElementById("cartModal").click();
+                clearCart();
+              }, 100); // Biarkan animasi jalan 2 detik
+            });
+            
+          
+            function clearCart() {
+              cart = [];
+              updateCart();
+            }
                 // Fungsi untuk menampilkan section
         function showSection(sectionId) {
             // Sembunyikan semua section
@@ -1240,6 +1037,245 @@ Di Undead Espresso, kami menjaga warisan rasa itu. Cookies kami dibuat dari baha
     });
   });
     </script>
+    <script>
+      // Fungsi untuk mengukur waktu klik pada tombol
+      function measureTime(actionName) {
+        const startTime = performance.now(); // Catat waktu sebelum aksi
+        console.log(`${actionName} started at ${startTime} ms`);
     
+        return function () {
+          const endTime = performance.now(); // Catat waktu setelah aksi
+          const duration = endTime - startTime; // Hitung durasi dalam ms
+          console.log(`${actionName} took ${duration.toFixed(2)} ms`);
+        };
+      }
+    
+      // Menambahkan event listener untuk tombol Cart
+      document.getElementById("cart-btn").addEventListener("click", function () {
+        const stopTimer = measureTime("Cart Button Clicked");
+        stopTimer(); // Menghitung waktu klik
+      });
+    
+      // Menambahkan event listener untuk tombol di modal
+      document.getElementById("pay-btn").addEventListener("click", function () {
+        const stopTimer = measureTime("Pay Button Clicked");
+        stopTimer(); // Menghitung waktu klik
+      });
+    
+      // Menambahkan event listener untuk modal ditampilkan
+      $('#cartModal').on('shown.bs.modal', function () {
+        const stopTimer = measureTime("Modal Opened");
+        stopTimer(); // Menghitung waktu membuka modal
+      });
+    </script>
+    <script>
+      const cart = [];
+      const cartItemsContainer = document.getElementById("cart-items");
+      const cartTotalElement = document.getElementById("cart-total");
+    
+      
+      document.querySelectorAll(".product-card button").forEach(button => {
+        button.addEventListener("click", (e) => {
+          const card = e.target.closest(".product-card");
+          const name = card.querySelector("h6").textContent;
+      
+          // Ambil harga dari <strong>, kalau gak ada ambil dari <p>
+          const strongEl = card.querySelector("strong");
+          const pEl = card.querySelector("p");
+      
+          const priceText = strongEl?.textContent || pEl?.textContent || "Rp 0";
+          const price = extractPrice(priceText);
+      
+          cart.push({ name, price });
+          updateCart();
+        });
+      });
+      
+      
+    
+      document.addEventListener('click', function (e) {
+        if (e.target.matches('.product-card button')) {
+          const card = e.target.closest('.product-card');
+          const name = card.querySelector('h6')?.textContent || "Produk";
+          const price = card.querySelector('p')?.textContent || "Rp. 0";
+      
+          console.log('Tambah ke cart:', name, price);
+          // tambahkan ke cart di sini
+        }
+      });
+      
+      function extractPrice(text) {
+        const match = text.match(/Rp\.?\s?([\d.]+)/i);
+        if (match && match[1]) {
+          return parseInt(match[1].replace(/\./g, ""));
+        }
+        return 0;
+      }
+      
+    
+      function updateCart() {
+        cartItemsContainer.innerHTML = "";
+        let total = 0;
+      
+        cart.forEach((item, index) => {
+          const li = document.createElement("li");
+          li.className = "list-group-item d-flex justify-content-between align-items-center";
+      
+          const itemInfo = document.createElement("span");
+          itemInfo.textContent = item.name;
+      
+          const rightSide = document.createElement("div");
+          rightSide.className = "d-flex align-items-center gap-2";
+      
+          const priceSpan = document.createElement("span");
+          priceSpan.textContent = `Rp ${item.price.toLocaleString("id-ID")}`;
+      
+          const deleteBtn = document.createElement("button");
+          deleteBtn.className = "btn btn-sm btn-danger";
+          deleteBtn.innerHTML = "❌";
+          deleteBtn.onclick = () => {
+            cart.splice(index, 1);  // hapus item dari array
+            updateCart();           // refresh tampilan
+          };
+      
+          rightSide.appendChild(priceSpan);
+          rightSide.appendChild(deleteBtn);
+      
+          li.appendChild(itemInfo);
+          li.appendChild(rightSide);
+      
+          cartItemsContainer.appendChild(li);
+          total += item.price;
+        });
+      
+        cartTotalElement.textContent = total.toLocaleString("id-ID");
+      }
+      function addToCart(productName, productPrice, buttonElement) {
+        cart.push({ name: productName, price: productPrice });
+        updateCart();
+        showFlyToCart(buttonElement);
+      }
+      function showFlyToCart(sourceElement) {
+        const flyIcon = document.createElement("div");
+        flyIcon.className = "fly-icon";
+        flyIcon.textContent = "☕";
+      
+        document.body.appendChild(flyIcon);
+      
+        const rectStart = sourceElement.getBoundingClientRect();
+        const cartBtn = document.getElementById("cart-btn");
+        const rectEnd = cartBtn.getBoundingClientRect();
+      
+        flyIcon.style.left = rectStart.left + "px";
+        flyIcon.style.top = rectStart.top + "px";
+      
+        setTimeout(() => {
+          flyIcon.style.transform = `translate(${rectEnd.left - rectStart.left}px, ${rectEnd.top - rectStart.top}px) scale(0.2)`;
+          flyIcon.style.opacity = 0;
+        }, 10);
+      
+        setTimeout(() => {
+          flyIcon.remove();
+          cartBtn.classList.add("shake-cart");
+          setTimeout(() => {
+            cartBtn.classList.remove("shake-cart");
+          }, 500);
+        }, 800);
+      }
+    document.addEventListener('click', function (e) {
+      if (e.target.matches('.product-card button')) {
+        const card = e.target.closest('.product-card');
+        const name = card.querySelector('h6')?.textContent || "Produk";
+        const price = card.querySelector('p')?.textContent || "Rp. 0";
+    
+        console.log('Tambah ke cart:', name, price);
+        // tambahkan ke cart di sini
+      }
+    });
+    
+function clearCart() {
+  cart = []; // Mengosongkan array keranjang
+  updateCart(); // Memperbarui tampilan keranjang
+}
+    
+    
+      
+    </script>
+    
+    
+      <!-- JS Kategori Toggle -->
+      <script>
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        const subcategoryButtons = document.querySelectorAll('.subcategory-btn'); // kalau kamu pake
+        const productCards = document.querySelectorAll('.product-card');
+        const pageCoffee = document.getElementById('page-coffee');
+        const pageDessert = document.getElementById('page-dessert');
+      
+        let activeCategory = null;
+        let activeSubcategory = null;
+      
+        // Fungsi untuk filter produk
+        function filterProducts() {
+          productCards.forEach(card => {
+            const cardCategory = card.dataset.category;
+            const cardSubcategory = card.dataset.subcategory;
+      
+            const matchCategory = !activeCategory || cardCategory === activeCategory;
+            const matchSubcategory = !activeSubcategory || cardSubcategory === activeSubcategory;
+      
+            card.style.display = (matchCategory && matchSubcategory) ? 'block' : 'none';
+          });
+        }
+      
+        // Handle klik kategori utama
+        categoryButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            const selectedCategory = button.dataset.category;
+        
+            // Ganti active state
+            categoryButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+        
+            // Reset subkategori juga
+            subcategoryButtons.forEach(btn => btn.classList.remove('active'));
+            activeSubcategory = null;
+        
+            if (selectedCategory === 'all') {
+              // Show all
+              activeCategory = null;
+              pageCoffee.classList.remove('d-none');
+              pageDessert.classList.remove('d-none');
+            } else {
+              // Set kategori spesifik
+              activeCategory = selectedCategory;
+              pageCoffee.classList.toggle('d-none', selectedCategory !== 'coffee');
+              pageDessert.classList.toggle('d-none', selectedCategory !== 'dessert');
+            }
+        
+            filterProducts();
+          });
+        });
+        
+      
+        // Handle klik sub-kategori (jika kamu punya tombolnya)
+        subcategoryButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            activeSubcategory = button.dataset.subcategory;
+      
+            subcategoryButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+      
+            filterProducts();
+          });
+        });
+      
+        // Tambah ke cart (sementara console log dulu)
+        document.addEventListener('click', function (e) {
+          if (e.target.matches('.product-card button')) {
+            const card = e.target.closest('.product-card');
+            console.log('Tambah ke cart:', card.querySelector('h6')?.textContent || 'Produk');
+          }
+        });
+      </script>
 </body>
 </html>

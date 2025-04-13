@@ -701,3 +701,190 @@ body {
   font-size: 1.2rem;
   opacity: 0.9;
 }
+/* Animasi notifikasi sukses */
+#payment-success {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px 40px;
+  background-color: #8B4513; /* Coklat tua seperti kopi */
+  color: white;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.3s ease-in-out;
+}
+
+#payment-success.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* SweetAlert - Customize the button */
+.swal2-confirm {
+  background-color: #8B4513; /* Coklat tua */
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 12px 24px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.swal2-confirm:hover {
+  background-color: #6A3C10; /* Coklat lebih gelap */
+  transform: scale(1.05);
+}
+
+/* SweetAlert - Progress Bar Style */
+.swal2-progress-bar {
+  background-color: #D2691E; /* Coklat sedikit terang seperti biji kopi panggang */
+}
+
+/* SweetAlert - Shadow Effect for the modal */
+.swal2-popup {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #FFF8DC; /* Warna latar belakang krem (seperti krim kopi) */
+  transition: transform 0.3s ease-in-out;
+}
+
+.swal2-popup:hover {
+  transform: scale(1.05);
+}
+
+/* SweetAlert Icon custom styles */
+.swal2-icon.swal2-success {
+  border-color: #8B4513; /* Coklat tua */
+  background-color: #F4A300; /* Warna seperti krim kopi */
+  color: #8B4513; /* Coklat tua */
+}
+
+.swal2-icon.swal2-success .swal2-success-ring {
+  border-color: #8B4513; /* Coklat tua */
+}
+
+.swal2-icon.swal2-success .swal2-success-fix {
+  border-color: #8B4513; /* Coklat tua */
+}
+
+/* Style untuk card */
+.product-card {
+  background-color: #F7DED1; /* Warna latar belakang card */
+  min-width: 350px;
+  max-width: 400px;
+  border-radius: 10px; /* Sudut melengkung */
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Menambah shadow yang lebih kuat */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden; /* Menghindari elemen keluar dari card */
+  margin: 10px; /* Memberi ruang antar card */
+}
+
+/* Efek hover */
+.product-card:hover {
+  transform: scale(1.05); /* Membesarkan sedikit saat hover */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); /* Bayangan lebih kuat saat hover */
+}
+
+/* Gambar di dalam card (jika ada) */
+.product-card img {
+  max-width: 100%;
+  height: auto; /* Membuat gambar responsif */
+  border-radius: 8px;
+  transition: opacity 0.3s ease;
+}
+
+/* Efek hover untuk gambar */
+.product-card:hover img {
+  opacity: 0.85; /* Gambar meredup sedikit saat hover */
+}
+
+/* Responsif untuk ukuran card yang lebih kecil di layar lebih kecil */
+@media (max-width: 768px) {
+  .product-card {
+    max-width: 100%; /* Menyesuaikan lebar card pada layar lebih kecil */
+    margin: 5px; /* Memberikan ruang antar card pada layar kecil */
+  }
+}
+
+/* Memberikan animasi hover pada teks dan elemen dalam card */
+.product-card:hover h6,
+.product-card:hover p {
+  color: #5C4033; /* Warna teks saat hover */
+  transition: color 0.3s ease;
+}
+
+/* Section untuk Other Coffee */
+.other-coffee-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 10px 0;
+}
+
+/* Card dalam other coffee khusus */
+.other-coffee-section .product-card {
+  background-color: #F7DED1;
+  min-width: 250px;
+  max-width: 350px;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  margin-bottom: 20px;
+  flex-grow: 1;
+  flex-basis: 300px;
+}
+
+/* Hover effect khusus di other coffee section */
+.other-coffee-section .product-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsif khusus untuk other coffee */
+@media (max-width: 768px) {
+  .other-coffee-section .product-card {
+    min-width: 100%;
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+
+  .other-coffee-section {
+    padding: 15px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .other-coffee-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .other-coffee-section .product-card {
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #7A4E2F; /* opsional, buat outline coklat */
+}
+
+.product-image-container {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
