@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Landing Page Café</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .section {
+            display: none; 
+        }
+        .active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-custom" style="padding: 10px;">
+        <div class="container">
+          <a class="navbar-brand d-flex align-items-center gap-2" href="#" style="overflow: hidden; height: 48px;">
+            <img src="logo.png" alt="logo" style="height: 64px; margin-top: -8px; margin-left: -12px;">
+            <h4 class="mb-0">Undead Espresso</h4>
+          </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link nav-btn" href="#" onclick="showSection('home')">Home</a></li>
+                    <li class="nav-item"><a class="nav-link nav-btn" href="#" onclick="showSection('article')">article</a></li>
+                    <li class="nav-item"><a class="nav-link nav-btn" href="#" onclick="showSection('shop')">shop</a></li>
+                    <li class="nav-item"><a class="nav-link nav-btn" href="#" onclick="showSection('about')">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section menu -->
+<section id="shop" class="container mt-4 section " style="background-color: #D8C5BB;">
+  <!-- Carousel Hero -->
+  <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" style="position: relative;">
+    <div class="carousel-inner">
+      <div class="carousel-item active position-relative">
+        <img src="shop3.jpg" class="d-block w-100" style="filter: brightness(60%); height: 400px; object-fit: cover;" alt="Hero Image">
+        <div class="carousel-caption d-flex flex-column justify-content-center align-items-center" style="z-index: 10;">
+          <h1 class="text-white fw-bold display-5">Undead Espresso</h1>
+          <p class="text-white">Home of Magical Coffee & Sweet Enchantment</p>
+        
+          <!-- Cart Button -->
+          <button style="
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid white;
+            border-radius: 8px;
+            cursor: pointer;
+            opacity: 0.6;
+            backdrop-filter: blur(4px);
+            z-index: 10;
+          "
+          
+          data-bs-toggle="modal"
+    data-bs-target="#cartModal">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/shopping-cart.png" alt="Cart" style="width: 24px; height: 24px;">
+            <span>Cart</span>
+          </button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+ <div class="category">
+  <!-- button -->
+  <br>
+
+<!-- Category Buttons -->
+<h4 class="fw-bold mb-3 category-label">Categories</h4>
+
+<div class="d-flex justify-content-left gap-2 my-4">
+  <button class="category-btn active" data-category="coffee">
+    <i class="bi bi-cup-hot"></i> Coffee
+  </button>
+  <button class="category-btn" data-category="dessert">
+    <i class="bi bi-cake2"></i> Pastry & Dessert
+  </button>
+</div>
+
+<!-- Subcategory Buttons -->
+<div id="kategori_lanjutan" class="d-flex gap-2 mb-4">
+  <button class="subcategory-btn" data-subcategory="espresso">Espresso</button>
+  <button class="subcategory-btn" data-subcategory="milk">Milk Based</button>
+  <button class="subcategory-btn" data-subcategory="cold">Cold Coffee</button>
+</div>
+
+  <!-- === PAGE COFFEE === -->
+  <div id="page-coffee">
+    <section class="special-offer-section py-4 px-3">
+      <h5 class="mb-3">🔥 Special Offer</h5>
+      <div class="carousel-container">
+        <div class="carousel-track d-flex overflow-auto gap-3 pb-2">
+     
+          <div class="card flex-shrink-0 product-card d-flex flex-row align-items-center" style="min-width: 350px; max-width: 400px; background-color: #F7DED1;">
+            <div class="image-box p-2" style="width: 150px; height: 150px; flex-shrink: 0;">
+              <img src="late.jpg" class="img-fluid rounded" alt="Limited Edition Latte" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="card-body py-2 pe-3 d-flex flex-column justify-content-between" style="width: 100%;">
+              <div>
+                <span class="badge bg-danger mb-1">Discount 50%</span>
+                <h6 class="mb-1">Limited Edition Latte</h6>
+                <p class="mb-1 text-muted small">Latte dengan latte art sesuai pesanan</p>
+              </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <p class="mb-0"><s>Rp. 30.000</s> <strong>Rp. 15.000</strong></p>
+                  <button class="btn btn-sm btn-dark add-btn" data-product="kopi-latte">+</button>
+                </div>
+            </div>
+          </div>
+          
+          <div class="card flex-shrink-0 product-card d-flex flex-row align-items-center" data-category="coffee" data-subcategory="milk" style="min-width: 350px; max-width: 400px; background-color: #F7DED1;">
+            <div class="image-box p-2" style="width: 150px; height: 150px; flex-shrink: 0;">
+              <img src="shop2.jpg" class="img-fluid rounded" alt="cookie latte combo" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="card-body py-2 pe-3 d-flex flex-column justify-content-between" style="width: 100%;">
+              <div>
+                <span class="badge bg-warning text-dark mb-1">Combo</span>
+                <h6 class="mb-1">Cookie Latte Combo</h6>
+                <p class="mb-1 text-muted small">Latte dengan cookie pilihan</p>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <p class="mb-0"><strong>Rp. 22.000</strong></p>
+                <button class="btn btn-sm btn-dark">+</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card flex-shrink-0 product-card d-flex flex-row align-items-center" data-category="coffee" data-subcategory="espresso" style="min-width: 350px; max-width: 400px; background-color: #F7DED1;">
+            <div class="image-box p-2" style="width: 150px; height: 150px; flex-shrink: 0;">
+              <img src="shop3.jpg" class="img-fluid rounded" alt="v 60" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="card-body py-2 pe-3 d-flex flex-column justify-content-between" style="width: 100%;">
+              <div>
+                <span class="badge bg-warning text-dark mb-1">Limited Brew</span>
+                <h6 class="mb-1">V60 Manual Brew</h6>
+                <p class="mb-1 text-muted small">Seduhan manual dengan metode V60</p>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <p class="mb-0"><strong>Rp. 25.000</strong></p>
+                <button class="btn btn-sm btn-dark">+</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card flex-shrink-0 product-card d-flex flex-row align-items-center" data-category="coffee" data-subcategory="milk" style="min-width: 350px; max-width: 400px; background-color: #F7DED1;">
+            <div class="image-box p-2" style="width: 150px; height: 150px; flex-shrink: 0;">
+              <img src="shop5.jpg" class="img-fluid rounded" alt="Affogato" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="card-body py-2 pe-3 d-flex flex-column justify-content-between" style="width: 100%;">
+              <div>
+                <span class="badge bg-warning text-dark mb-1">Fusion</span>
+                <h6 class="mb-1">Affogato Ice Cream</h6>
+                <p class="mb-1 text-muted small">Kopi espresso dengan es krim vanilla</p>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <p class="mb-0"><strong>Rp. 28.000</strong></p>
+                <button class="btn btn-sm btn-dark">+</button>
+              </div>
+            </div>
+          </div>
+
+         <div class="card flex-shrink-0 product-card d-flex flex-row align-items-center" data-category="coffee" data-subcategory="milk" style="min-width: 350px; max-width: 400px; background-color: #F7DED1;">
+          <div class="image-box p-2" style="width: 150px; height: 150px; flex-shrink: 0;">
+            <img src="shop4.jpg" class="img-fluid rounded" alt="Caramel Macchiato" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div class="card-body py-2 pe-3 d-flex flex-column justify-content-between" style="width: 100%;">
+            <div>
+              <span class="badge bg-warning text-dark mb-1">Seasonal</span>
+              <h6 class="mb-1">Caramel Macchiato</h6>
+              <p class="mb-1 text-muted small">Espresso, steamed milk & caramel syrup</p>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+              <p class="mb-0"><s>Rp. 32.000</s> <strong>Rp. 22.000</strong></p>
+              <button class="btn btn-sm btn-dark">+</button>
+            </div>
+          </div>
+        </div>
+        
+        </div>
+
+      </div>
+    </section>
+  
+    <section class="top-rated-section py-4 px-3">
+      <h5 class="mb-3">⭐ Top Rated</h5>
+      <div class="carousel-container">
+        <div class="carousel-track d-flex overflow-auto gap-3 pb-2">
+          <div class="card flex-shrink-0 product-card" data-category="coffee" data-subcategory="espresso" style="min-width: 250px;">
+            <div class="image-box">
+              <img src="shop1a.jpg" class="card-img-top" alt="amerikano">
+            </div>
+            <div class="card-body">
+              <span class="badge bg-success">Best Seller</span>
+              <h6 class="mt-2">Americano</h6>
+              <p class="mb-2">Rp. 18.000</p>
+              <button class="btn btn-sm btn-dark">+</button>
+            </div>
+          </div>
+          <div class="card flex-shrink-0 product-card" data-category="coffee" data-subcategory="milk" style="min-width: 250px;">
+            <div class="image-box">
+              <img src="shop2a.jpg" class="card-img-top" alt="Mocha Cream">
+            </div>
+            <div class="card-body">
+              <span class="badge bg-success">Favorite</span>
+              <h6 class="mt-2">Mocha Cream</h6>
+              <p class="mb-2">Rp. 24.000</p>
+              <button class="btn btn-sm btn-dark">+</button>
+            </div>
+          </div>
+          <div class="card flex-shrink-0 product-card" data-category="coffee" data-subcategory="cold" style="min-width: 250px;">
+            <div class="image-box">
+              <img src="shop3a.jpg" class="card-img-top" alt="butter">
+            </div>
+            <div class="card-body">
+              <span class="badge bg-success">Top Rated</span>
+              <h6 class="mt-2">Butterscotch Latte</h6>
+              <p class="mb-2">Rp. 27.000</p>
+              <button class="btn btn-sm btn-dark">+</button>
+            </div>
+          </div>
+          <div class="card flex-shrink-0 product-card" data-category="coffee" data-subcategory="milk" style="min-width: 250px;">
+            <div class="image-box">
+              <img src="shop4a.png" class="card-img-top" alt="hazzel">
+            </div>
+            <div class="card-body">
+              <span class="badge bg-success">Top Pick</span>
+              <h6 class="mt-2">Hazelnut Coffee</h6>
+              <p class="mb-2">Rp. 23.000</p>
+              <button class="btn btn-sm btn-dark">+</button>
+            </div>
+          </div>
+          <div class="card flex-shrink-0 product-card" data-category="coffee" data-subcategory="espresso" style="min-width: 250px;">
+            <div class="image-box">
+              <img src="shop5a.png" class="card-img-top" alt="double">
+            </div>
+            <div class="card-body">
+              <span class="badge bg-success">Energy Boost</span>
+              <h6 class="mt-2">Double Shot Espresso</h6>
+              <p class="mb-2">Rp. 20.000</p>
+              <button class="btn btn-sm btn-dark">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- other coffe -->
+    <section class="other-coffee-section py-4 px-3">
+      <div class="container px-3">
+      <h5 class="mb-3">☕ Other Coffee</h5>
+      <div class="row g-3">
+        <div class="col-md-6 col-lg-4">
+          <div class="card product-card" data-category="coffee" data-subcategory="milk">
+            <div class="image-box">
+              <img src="shop6a.jpg" class="card-img-top" alt="Vanilla Latte">
+            </div>
+            <div class="card-body">
+              <h6 class="mt-2">Vanilla Latte</h6>
+              <p class="mb-2">Rp. 22.000</p>
+              <button class="btn btn-sm btn-dark">+</button>
+            </div>
+          </div>
+        </div>
+    
+        <div class="col-md-6 col-lg-4">
+          <div class="card product-card" data-category="coffee" data-subcategory="cold">
+            <div class="image-box">
+              <img src="ice.png" class="card-img-top" alt="Iced Caramel Macchiato">
+            </div>
+            <div class="card-body">
+              <h6 class="mt-2">Iced Caramel Macchiato</h6>
+              <p class="mb-2">Rp. 25.000</p>
+              <button class="btn btn-sm btn-dark">+</button>
+            </div>
+          </div>
+          
+        </div>
+    
+        <div class="col-md-6 col-lg-4">
+          <div class="card product-card" data-category="coffee" data-subcategory="milk">
+            <div class="image-box">
+              <img src="shop7a.jpg" class="card-img-top" alt="Tiramisu Latte">
+            </div>
+            <div class="card-body">
+              <h6 class="mt-2">Tiramisu Latte</h6>
+              <p class="mb-2">Rp. 26.000</p>
+              <button class="btn btn-sm btn-dark">+</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card product-card" data-category="coffee" data-subcategory="milk">
+            <div class="image-box">
+              <img src="shop6a.jpg" class="card-img-top" alt="Vanilla Latte">
+            </div>
+            <div class="card-body">
+              <h6 class="mt-2">Vanilla Latte</h6>
+              <p class="mb-2">Rp. 22.000</p>
+              <button class="btn btn-sm btn-dark">+</button>
+            </div>
+          </div>
+        </div>
+    
+        <div class="col-md-6 col-lg-4">
+          <div class="card product-card" data-category="coffee" data-subcategory="cold">
+            <div class="image-box">
+              <img src="shop7a.jpg" class="card-img-top" alt="Iced Caramel Macchiato">
+            </div>
+            <div class="card-body">
+              <h6 class="mt-2">Iced Caramel Macchiato</h6>
+              <p class="mb-2">Rp. 25.000</p>
+              <button class="btn btn-sm btn-dark">+</button>
+            </div>
+          </div>
+        </div>
+    
+        <div class="col-md-6 col-lg-4">
+          <div class="card product-card" data-category="coffee" data-subcategory="milk">
+            <div class="image-box">
+              <img src="honda.jpg" class="card-img-top" alt="Tiramisu Latte">
+            </div>
+            <div class="card-body">
+              <h6 class="mt-2">Honda Hrv</h6>
+              <p class="mb-2">Rp. 484.700.000</p>
+              <button class="btn btn-sm btn-dark">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </section>
+    
+
+  </div>
+  
+  <!-- === PAGE DESSERT === -->
+  <div id="page-dessert" class="d-none">
+    <section class="special-offer-section py-4 px-3">
+      <h5 class="mb-3">🍰 Special Offer - Desseraat</h5>
+      <div class="carousel-track d-flex overflow-auto gap-3 pb-2">
+        <div class="card flex-shrink-0 product-card" data-category="dessert" style="min-width: 250px;">
+          <img src="cake1.jpg" class="card-img-top" alt="Red Velvet Slice">
+          <div class="card-body">
+            <span class="badge bg-danger">New</span>
+            <h6 class="mt-2">Red Velvet Slice</h6>
+            <p class="mb-2">Rp. 18.000</p>
+            <button class="btn btn-sm btn-dark">+</button>
+          </div>
+        </div>
+
+        <div class="card flex-shrink-0 product-card" data-category="dessert" style="min-width: 250px;">
+          <img src="cake2.jpg" class="card-img-top" alt="Butter Croissant">
+          <div class="card-body">
+            <span class="badge bg-warning text-dark">Bestseller</span>
+            <h6 class="mt-2">Butter Croissant</h6>
+            <p class="mb-2">Rp. 15.000</p>
+            <button class="btn btn-sm btn-dark">+</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Modal Cart -->
+<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="cartModalLabel">🛒 Your Cart</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul id="cart-items" class="list-group mb-3" style="max-height: 300px; overflow-y: auto;"></ul>
+        <h6>Total: Rp <span id="cart-total">0</span></h6>
+
+        <div id="qr-section" class="d-none mt-3 d-flex justify-content-center">
+          <div class="card shadow p-3 text-center" style="width: 280px;">
+            <p class="fw-semibold mb-2">Scan QR untuk bayar:</p>
+            <div id="qrcode" class="mx-auto"></div>
+            <p class="mt-2 text-muted small">Setelah membayar, klik "Sudah Bayar"</p>
+          </div>
+        </div>       
+
+    <!-- Overlay untuk animasi sukses -->
+
+
+    <!-- Animasi Sukses -->
+    <div id="payment-success" style="
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99999;
+    display: none;
+    padding: 20px;
+  ">
+    
+  </div>
+  
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <!-- Tambahin di modal-footer -->
+                <button type="button" class="btn btn-success" id="pay-btn">Bayar</button>
+                <button type="button" class="btn btn-primary d-none" id="confirm-btn">Sudah Bayar</button>
+        <!-- Bisa tambahin tombol Checkout di sini -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Cart Button -->
+<div id="coffee-anim" style="position: fixed; width: 50px; height: 50px; z-index: 9999; display: none; pointer-events: none;">
+  <img src="logo.png" alt="coffee" style="height: 150px;">
+</div>
+
+<!-- Floating Cart Button -->
+<button class="btn btn-dark position-fixed" id="cart-btn" style="bottom: 20px; right: 20px; z-index: 999;" data-bs-toggle="modal" data-bs-target="#cartModal">
+  🛒
+  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+    <span id="cart-count">0</span>
+  </span>
+</button>
+
+
+
+
+
+
+<script>
+  const cart = [];
+  const cartItemsContainer = document.getElementById("cart-items");
+  const cartTotalElement = document.getElementById("cart-total");
+
+  
+  document.querySelectorAll(".product-card button").forEach(button => {
+    button.addEventListener("click", (e) => {
+      const card = e.target.closest(".product-card");
+      const name = card.querySelector("h6").textContent;
+  
+      // Ambil harga dari <strong>, kalau gak ada ambil dari <p>
+      const strongEl = card.querySelector("strong");
+      const pEl = card.querySelector("p");
+  
+      const priceText = strongEl?.textContent || pEl?.textContent || "Rp 0";
+      const price = extractPrice(priceText);
+  
+      cart.push({ name, price });
+      updateCart();
+    });
+  });
+  
+  
+
+  document.addEventListener('click', function (e) {
+    if (e.target.matches('.product-card button')) {
+      const card = e.target.closest('.product-card');
+      const name = card.querySelector('h6')?.textContent || "Produk";
+      const price = card.querySelector('p')?.textContent || "Rp. 0";
+  
+      console.log('Tambah ke cart:', name, price);
+      // tambahkan ke cart di sini
+    }
+  });
+  
+  function extractPrice(text) {
+    const match = text.match(/Rp\.?\s?([\d.]+)/i);
+    if (match && match[1]) {
+      return parseInt(match[1].replace(/\./g, ""));
+    }
+    return 0;
+  }
+  
+
+  function updateCart() {
+    cartItemsContainer.innerHTML = "";
+    let total = 0;
+  
+    cart.forEach((item, index) => {
+      const li = document.createElement("li");
+      li.className = "list-group-item d-flex justify-content-between align-items-center";
+  
+      const itemInfo = document.createElement("span");
+      itemInfo.textContent = item.name;
+  
+      const rightSide = document.createElement("div");
+      rightSide.className = "d-flex align-items-center gap-2";
+  
+      const priceSpan = document.createElement("span");
+      priceSpan.textContent = `Rp ${item.price.toLocaleString("id-ID")}`;
+  
+      const deleteBtn = document.createElement("button");
+      deleteBtn.className = "btn btn-sm btn-danger";
+      deleteBtn.innerHTML = "❌";
+      deleteBtn.onclick = () => {
+        cart.splice(index, 1);  // hapus item dari array
+        updateCart();           // refresh tampilan
+      };
+  
+      rightSide.appendChild(priceSpan);
+      rightSide.appendChild(deleteBtn);
+  
+      li.appendChild(itemInfo);
+      li.appendChild(rightSide);
+  
+      cartItemsContainer.appendChild(li);
+      total += item.price;
+    });
+  
+    cartTotalElement.textContent = total.toLocaleString("id-ID");
+  }
+  function addToCart(productName, productPrice, buttonElement) {
+    cart.push({ name: productName, price: productPrice });
+    updateCart();
+    showFlyToCart(buttonElement);
+  }
+  function showFlyToCart(sourceElement) {
+    const flyIcon = document.createElement("div");
+    flyIcon.className = "fly-icon";
+    flyIcon.textContent = "☕";
+  
+    document.body.appendChild(flyIcon);
+  
+    const rectStart = sourceElement.getBoundingClientRect();
+    const cartBtn = document.getElementById("cart-btn");
+    const rectEnd = cartBtn.getBoundingClientRect();
+  
+    flyIcon.style.left = rectStart.left + "px";
+    flyIcon.style.top = rectStart.top + "px";
+  
+    setTimeout(() => {
+      flyIcon.style.transform = `translate(${rectEnd.left - rectStart.left}px, ${rectEnd.top - rectStart.top}px) scale(0.2)`;
+      flyIcon.style.opacity = 0;
+    }, 10);
+  
+    setTimeout(() => {
+      flyIcon.remove();
+      cartBtn.classList.add("shake-cart");
+      setTimeout(() => {
+        cartBtn.classList.remove("shake-cart");
+      }, 500);
+    }, 800);
+  }
+document.addEventListener('click', function (e) {
+  if (e.target.matches('.product-card button')) {
+    const card = e.target.closest('.product-card');
+    const name = card.querySelector('h6')?.textContent || "Produk";
+    const price = card.querySelector('p')?.textContent || "Rp. 0";
+
+    console.log('Tambah ke cart:', name, price);
+    // tambahkan ke cart di sini
+  }
+});
+
+
+  
+</script>
+
+
+  <!-- JS Kategori Toggle -->
+  <script>
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    const subcategoryButtons = document.querySelectorAll('.subcategory-btn'); // kalau kamu pake
+    const productCards = document.querySelectorAll('.product-card');
+    const pageCoffee = document.getElementById('page-coffee');
+    const pageDessert = document.getElementById('page-dessert');
+  
+    let activeCategory = null;
+    let activeSubcategory = null;
+  
+    // Fungsi untuk filter produk
+    function filterProducts() {
+      productCards.forEach(card => {
+        const cardCategory = card.dataset.category;
+        const cardSubcategory = card.dataset.subcategory;
+  
+        const matchCategory = !activeCategory || cardCategory === activeCategory;
+        const matchSubcategory = !activeSubcategory || cardSubcategory === activeSubcategory;
+  
+        card.style.display = (matchCategory && matchSubcategory) ? 'block' : 'none';
+      });
+    }
+  
+    // Handle klik kategori utama
+    categoryButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const selectedCategory = button.dataset.category;
+    
+        // Ganti active state
+        categoryButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+    
+        // Reset subkategori juga
+        subcategoryButtons.forEach(btn => btn.classList.remove('active'));
+        activeSubcategory = null;
+    
+        if (selectedCategory === 'all') {
+          // Show all
+          activeCategory = null;
+          pageCoffee.classList.remove('d-none');
+          pageDessert.classList.remove('d-none');
+        } else {
+          // Set kategori spesifik
+          activeCategory = selectedCategory;
+          pageCoffee.classList.toggle('d-none', selectedCategory !== 'coffee');
+          pageDessert.classList.toggle('d-none', selectedCategory !== 'dessert');
+        }
+    
+        filterProducts();
+      });
+    });
+    
+  
+    // Handle klik sub-kategori (jika kamu punya tombolnya)
+    subcategoryButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        activeSubcategory = button.dataset.subcategory;
+  
+        subcategoryButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+  
+        filterProducts();
+      });
+    });
+  
+    // Tambah ke cart (sementara console log dulu)
+    document.addEventListener('click', function (e) {
+      if (e.target.matches('.product-card button')) {
+        const card = e.target.closest('.product-card');
+        console.log('Tambah ke cart:', card.querySelector('h6')?.textContent || 'Produk');
+      }
+    });
+  </script>
+    
+
+</section>
+
+
+    <!-- Section article -->
+    <section id="article" class="container mt-5 section p-4" style="max-width: 900px; margin: auto;">
+            <h2 class="fw-bold mb-3">Sejarah Kopi: Dari Biji ke Cangkir</h2>
+            <p>Kopi pertama kali ditemukan di Ethiopia sekitar abad ke-9, ketika seorang gembala bernama Kaldi melihat kambingnya menjadi lebih berenergi setelah makan biji merah dari pohon kopi. </p>
+            <div class="text-center">
+              <img src="article1.png" 
+                   class="img-fluid rounded my-4 custom-article-img" 
+                   alt="Kopi dengan biji kopi">
+            </div>
+            <div class="text">
+              <p>Kafein dalam kopi dapat mempercepat metabolisme tubuh, yang membantu pembakaran kalori dan meningkatkan daya tahan tubuh saat berolahraga.</p>
+              <p>Kopi bukan hanya minuman penyegar, tetapi juga memiliki berbagai manfaat kesehatan. Kandungan kafein dalam kopi dapat meningkatkan kewaspadaan, fokus, dan energi, serta membantu mempercepat metabolisme tubuh, yang berguna dalam pembakaran kalori dan meningkatkan daya tahan saat berolahraga. Selain itu, kopi juga kaya akan antioksidan yang membantu melawan radikal bebas, mencegah penuaan dini, dan mengurangi risiko penyakit kronis seperti Parkinson, Alzheimer, diabetes tipe 2, dan penyakit jantung. Kopi juga dapat meningkatkan mood dengan merangsang produksi hormon dopamin dan serotonin, yang membantu mengurangi stres dan meningkatkan perasaan bahagia. Dengan segala manfaatnya, kopi menjadi pilihan yang menyegarkan sekaligus mendukung kesehatan tubuh secara keseluruhan.</p>
+              <p>>Pada abad ke-17, kopi menyebar ke Eropa dan menjadi bagian dari budaya sosial dengan hadirnya kedai kopi. Di Inggris, klub kopi menjadi tempat berkumpulnya para intelektual, yang mendorong perkembangan ide-ide besar.</p>
+              
+            </div>
+            <div class="row my-4">
+                <div class="col-md-6 mb-3">
+                  <img src="article2.png" 
+                  class="img-fluid rounded my-4 custom-article-img" 
+                  alt="croissant">
+                </div>
+                <div class="col-md-6 mb-3">
+                  <img src="article3.png" 
+                  class="img-fluid rounded my-4 custom-article-img" 
+                  alt="cheescake">
+                </div>
+            </div>
+            <div class="text">
+              <p>      Cheesecake, kue lembut dengan dasar biskuit dan lapisan krim keju, telah ada sejak zaman Yunani kuno. Pada awalnya, cheesecake dibuat sebagai makanan untuk para atlet di Olimpiade pertama pada 776 SM, dengan menggunakan keju, madu, dan gandum. Seiring berjalannya waktu, resep cheesecake menyebar ke Roma, yang kemudian mengubahnya dengan menambahkan telur dan rempah-rempah.
+
+              </p>
+              <p>Croissant adalah pastry yang berasal dari Prancis, namun memiliki akar sejarah yang lebih dalam di Austria. Croissant pertama kali diciptakan di Wina pada abad ke-17 oleh pembuat roti yang terinspirasi oleh bentuk bulan sabit bendera Ottoman.
+              </p>
+            </div>
+            <h4 class="mt-5">Related articles</h4>
+            <div class="card-row text-center">
+              <div class="card-item">
+                <img src="artc1.png" class="img-fluid rounded" alt="Latte Art">
+                <div class="textcard">
+                  <p class="mt-2">kopi dengan biji</p>
+                  <p style="color: gray;">john autor</p>
+                </div>
+              </div>
+              <div class="card-item">
+                <img src="artc2.png" class="img-fluid rounded" alt="Espresso">
+                <div class="textcard">
+                  <p class="mt-2">menyeduh kopi dengan air panas</p>
+                  <p style="color: gray;">roger</p>
+                </div>
+              </div>
+              <div class="card-item">
+                <img src="artc3.png" class="img-fluid rounded" alt="Biji kopi">
+                <div class="textcard">
+                  <p class="mt-2">biji kopi terpilih</p>
+                  <p style="color: gray;">balmond</p>
+                </div>
+              </div>
+            </div>
+            
+    </section>
+    <!-- Section home -->
+    <section id="home" class="container-fluid mt-5 section active"> 
+        <div class="container-fluid p-0 carousel-wrapper position-relative">
+            <!-- Carousel -->
+            <div id="carouselMenu" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="bnr1.png" class="d-block w-100" alt="Banner Menu 1">
+                </div>
+                <div class="carousel-item">
+                  <img src="bg2.png" class="d-block w-100" alt="Banner Menu 2">
+                </div>
+                <div class="carousel-item">
+                  <img src="bg3.png" class="d-block w-100" alt="Banner Menu 3">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselMenu" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselMenu" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+              </button>
+            </div>
+          
+                <!-- SVG wave nimpalin carousel -->
+                <div class="wave-overlay">
+                    <svg viewBox="0 0 1200 100" preserveAspectRatio="none">
+                      <path d="M0,50 C300,0 900,100 1200,50 L1200,100 L0,100 Z" fill="#EACDBD"/>
+                    </svg>
+                    <svg viewBox="0 0 1200 100" preserveAspectRatio="none">
+                      <path d="M0,50 C300,0 900,100 1200,50 L1200,100 L0,100 Z" fill="#EACDBD"/>
+                    </svg>
+                    <svg viewBox="0 0 1200 100" preserveAspectRatio="none">
+                      <path d="M0,50 C300,0 900,100 1200,50 L1200,100 L0,100 Z" fill="#EACDBD"/>
+                    </svg>
+                    
+                  </div>
+          </div>
+          
+
+          <div class="d-flex flex-column align-items-center justify-content-center text-center" style="min-height: 200px; background-color: #EACDBD;">
+            <div class="card-body">
+              <img src="logo.png" alt="Logo" style="width: 120px; height: auto; margin-bottom: 10px;">
+                <h5 class="card-title">Coffe Menu</h5>
+                <p class="card-text">Kami Menyajikan Kopi Terbaik Dengan Biji Pilihan</p>
+            </div>
+        </div>
+        
+         <!-- Grid Menu -->
+        <div class="row mt-4 text-center justify-content-center">
+            <div class="col-6 col-md-4 col-lg-3 mb-4">
+                <div class="card menu-card">
+                    <img src="frap.png" class="card-img-top" alt="Latte">
+                    <div class="card-body">
+                        <h5 class="card-title">Latte</h5>
+                        <p class="card-text">Kombinasi sempurna antara espresso dan susu yang creamy.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 mb-4">
+                <div class="card menu-card">
+                    <img src="espreso.png" class="card-img-top" alt="Espresso">
+                    <div class="card-body">
+                        <h5 class="card-title">Espresso</h5>
+                        <p class="card-text">Minuman kopi dengan rasa yang kuat dan aroma khas.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 mb-4">
+                <div class="card menu-card">
+                    <img src="capucino.png" class="card-img-top" alt="Cappuccino">
+                    <div class="card-body">
+                        <h5 class="card-title">Cappuccino</h5>
+                        <p class="card-text">Kopi berbasis espresso namun lebih berbusa karena susu.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 mb-4">
+                <div class="card menu-card">
+                    <img src="ice.png" class="card-img-top" alt="Iced Latte">
+                    <div class="card-body">
+                        <h5 class="card-title">Iced Latte</h5>
+                        <p class="card-text">Kombinasi sempurna antara espresso dan susu yang creamy.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 mb-4">
+                <div class="card menu-card">
+                    <img src="capucino.png" class="card-img-top" alt="Americano">
+                    <div class="card-body">
+                        <h5 class="card-title">Americano</h5>
+                        <p class="card-text">Espresso yang ditambahkan air panas, cocok dengan cookies.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 mb-4">
+                <div class="card menu-card">
+                    <img src="moca.png" class="card-img-top" alt="Mocha">
+                    <div class="card-body">
+                        <h5 class="card-title">Mocha</h5>
+                        <p class="card-text">Kopi yang nikmat jika sedang hujan dan menghangatkan tubuh.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tombol Pesan -->
+        <div class="d-flex justify-content-center mt-4">
+          <button class="btn btn-brown px-4 py-2" onclick="showSection('shop')">
+            <i class="fas fa-shopping-cart"></i> Pesan
+          </button>
+        </div>
+        
+<br>
+
+<section class="highlight-section" style="border-radius: 20px;">
+<!-- Konten Highlight Box -->
+<div class="highlight-box d-flex align-items-center mb-4">
+  <img src="coffelogo.png" alt="Logo Kopi" class="me-3" style="width: 200px;" />
+  <div class="highlight-text">
+    <h3>Sejarah kopi</h3>
+    <p>
+      Kopi pertama kali ditemukan di Ethiopia sekitar abad ke-9, ketika seorang gembala bernama Kaldi melihat kambingnya menjadi lebih berenergi setelah makan biji merah dari pohon kopi.
+    </p>
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalKopi">Baca &rsaquo;</button>
+    
+  </div>
+</div>
+
+
+
+<!-- Combo Cookies Maniac -->
+<div class="highlight-box d-flex align-items-center flex-row-reverse mb-4">
+  <img src="cookies.png" alt="Cookie" class="ms-3" style="width: 150px;" />
+  <div class="highlight-text">
+    <h3>Combo Cookies Maniac</h3>
+    <p>
+      Combo cookies maniac adalah ungkapan rasa senang ketika seseorang merasakan nikmatnya memakan cookies dengan kopi.
+    </p>
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCookies">Baca &rsaquo;</button>
+    
+  </div>
+</div>
+
+<!-- Modal Kopi -->
+<div class="modal fade" id="modalKopi" tabindex="-1" aria-labelledby="modalKopiLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalKopiLabel" style="color: black;">Sejarah Kopi</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+      </div>
+      <div class="modal-body">
+        <p style="color: black;">
+          Sejarah kopi dimulai dari dataran tinggi Ethiopia, di mana seorang gembala bernama Kaldi memperhatikan kambing-kambingnya menjadi lebih energik setelah memakan buah dari pohon kopi. Penemuan ini kemudian menyebar ke dunia Arab, menjadi minuman spiritual dan sosial yang sangat disukai. Pada abad ke-15, kopi mulai dipanggang dan diseduh seperti yang kita kenal sekarang. Dari dunia Islam, kopi akhirnya menyebar ke Eropa, lalu ke seluruh penjuru dunia dan menjadi budaya global.
+<br> <br>
+Di Undead Espresso, kami menyajikan kopi yang diracik dari biji pilihan, ditanam dari generasi ke generasi di dataran tinggi, diproses dengan cermat, dan diseduh penuh rasa. Semua itu kami hadirkan untuk kamu nikmati tanpa harus jauh-jauh ke Ethiopia atau Turki.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Cookies -->
+<div class="modal fade" id="modalCookies" tabindex="-1" aria-labelledby="modalCookiesLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalCookiesLabel" style="color: black;">Combo Cookies</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+      </div>
+      <div class="modal-body" style="color: black;">
+      <p>
+        Dahulu kala, di kerajaan timur bernama Persia, para juru masak istana menciptakan kue kecil yang manis, renyah, dan wangi. Mereka menyebutnya “cookies”—camilan yang membuat para bangsawan tersenyum lembut di tengah jamuan teh mereka. Ketika resep ini mengarungi lautan dan tiba di dunia barat, cookies bertemu takdirnya: segelas susu hangat. Dari sanalah lahir tradisi agung: cookies & susu, pasangan sejati yang menyatukan dunia.
+<br> <br>
+Di Undead Espresso, kami menjaga warisan rasa itu. Cookies kami dibuat dari bahan pilihan dan keahlian para pembuat roti yang hampir setara penyihir kerajaan. Disandingkan dengan susu hangat, rasanya bukan cuma enak—tapi seakan membawa kamu ke pesta dansa di ruang makan istana.
+      </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</section>
+
+        
+        <section class="dessert-section">
+          <h2>Pastry & Dessert</h2>
+          <div class="dessert-grid">
+            <div class="dessert-item">
+              <img src="chescake.png" alt="Cheesecake" />
+              <h3>Cheesecake</h3>
+              <p>Kue lembut dengan rasa creamy yang khas dan terbuat dari keju berkualitas tinggi</p>
+            </div>
+            <div class="dessert-item">
+              <img src="croisant.png" alt="Croissant" />
+              <h3>Croissant</h3>
+              <p>Pastry khas Prancis dengan tekstur renyah di luar dan lembut di dalam</p>
+            </div>
+            <div class="dessert-item">
+              <img src="canele.png" alt="Canelle" />
+              <h3>Canelle</h3>
+              <p>Canele kue yang memiliki bagian tengah yang lembut dan bagian luar yang tebal dan garing</p>
+            </div>
+            <div class="dessert-item">
+              <img src="cokie.png" alt="Cookies" />
+              <h3>Cookies</h3>
+              <p>Cookies homemade yang sangat cocok disajikan sebagai pendamping dari secangkir kopi hangat</p>
+            </div>
+          </div>
+        </section>
+        
+
+    </section>
+    <!-- section about -->
+    <section id="about" class="container mt-5 section p-4" style="max-width: 900px; margin: auto;">
+        <div class="container">
+            <div class="row align-items-center">
+              <!-- Kiri: Teks -->
+              <div class="col-md-8">
+                <h2 class="mb-3">About</h2>
+                <h4 class="fw-bold" style="color: #5a3e2b;">Undead espresso</h4>
+                <p>
+                  Selamat datang di Undead Espresso, tempat di mana kopi bukan sekadar minuman, tapi sebuah ritual untuk menghidupkan kembali semangat!
+                </p>
+                <p>
+                  Di sini, kami menyajikan racikan kopi terbaik yang bisa membulatkan harimu. Dengan biji pilihan dan metode seduh khas, setiap tegukan membawa pengalaman rasa yang kuat, mendalam, dan tak terlupakan.
+                </p>
+                <p>
+                  Kami percaya bahwa kopi bukan sekadar kafein, tapi juga seni, cerita, dan atmosfer yang membuat orang ingin kembali lagi. Jadi, apakah kamu siap untuk revival dengan segelas kopi dari dunia undead?
+                </p>
+        
+                <blockquote class="blockquote mt-4" style="color: #5a3e2b;">
+                  <p class="mb-0">☕ Undead Espresso — Where Every Sip Brings You Back to Life.</p>
+                </blockquote>
+        
+                <h5 class="mt-5">Contact me</h5>
+                <form>
+                  <div class="row mb-3">
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="First name">
+                    </div>
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="Last name">
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <input type="email" class="form-control" placeholder="Email address">
+                  </div>
+                  <div class="mb-3">
+                    <textarea class="form-control" rows="4" placeholder="Enter your question or message"></textarea>
+                  </div>
+                  <button type="submit" class="btn" style="background-color: #5a3e2b; color: white;">Submit</button>
+                </form>
+              </div>
+              <div class="col-md-4 text-center d-flex align-items-start justify-content-center">
+                <img src="logo.png" alt="Undead Espresso Logo" class="img-fluid" style="width: 500px; margin-top: 10px;">
+              </div>
+            </div>
+          </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="footer" style="margin-top: 10px;">
+      <div class="footer-container">
+        <div class="footer-brand">
+          <h3>Undead espresso</h3>
+          <a href="https://www.google.ca/maps/search/caff%C3%A8+near+French+Riviera,+France/@43.5489181,7.0072746,16.58z/data=!4m15!1m11!4m10!1m3!1m1!2sAyr,+UK!5sKE4OIbKkPf3gtUIGGmgMBYVesXDQcGJI!1m3!1m1!2sArran,+Isle+of+Arran,+UK!5s1e0gIePi5PwipPbIwdVqbPE0nUfg74lI!2m1!6e3!2m2!3m1!5e2?entry=ttu&g_ep=EgoyMDI1MDQwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+            <img src="map.png" alt="Google Maps" class="map-img" />
+          </a>
+          <p>
+            Eiffel Berlin, Undead Caffe Espresso<br />
+            2242932, Street Italian
+          </p>
+        </div>
+    
+        <div class="footer-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="#">Shows</a></li>
+            <li><a href="#">Coffee</a></li>
+          </ul>
+        </div>
+    
+        <div class="footer-col">
+          <h4>Category</h4>
+          <ul>
+            <li><a href="#">Men</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">Weekly Pick</a></li>
+          </ul>
+        </div>
+    
+        <div class="footer-col">
+          <h4>Company info</h4>
+          <ul>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Santoryuu</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Voucher</a></li>
+            <li><a href="#">Track creator</a></li>
+          </ul>
+        </div>
+    
+        <div class="footer-col">
+          <h4>Follow us</h4>
+          <ul class="social-icons">
+            <li><a href="#"><img src="instagram.png" alt="Instagram"></a></li>
+            <li><a href="#"><img src="fb.png" alt="Facebook"></a></li>
+            <li><a href="#"><img src="yt.png" alt="YouTube"></a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <!-- JavaScript -->
+    <script>
+      const payBtn = document.getElementById("pay-btn");
+          const confirmBtn = document.getElementById("confirm-btn");
+          const qrSection = document.getElementById("qr-section");
+          const qrContainer = document.getElementById("qrcode");
+        
+          payBtn.addEventListener("click", () => {
+            const items = cart.map(item => `${item.name} x${item.qty}`).join(", ");
+            const total = cart.reduce((acc, item) => acc + item.price * item.qty, 0);
+            const qrText = `Undead Espresso\n${items}\nTotal: Rp ${total.toLocaleString()}`;
+        
+            // Clear previous QR
+            qrContainer.innerHTML = "";
+        
+            new QRCode(qrContainer, {
+              text: qrText,
+              width: 200,
+              height: 200,
+            });
+        
+            qrSection.classList.remove("d-none");
+            confirmBtn.classList.remove("d-none");
+            payBtn.disabled = true;
+          });
+          confirmBtn.addEventListener("click", () => {
+            // Tampilkan animasi sukses
+            const successAnim = document.getElementById("payment-success");
+            successAnim.classList.add("show");
+            successAnim.style.display = "block";
+          
+            // Setelah animasi selesai, reset keranjang dan tutup modal
+            setTimeout(() => {
+              successAnim.classList.remove("show");
+              successAnim.style.display = "none";
+          
+              Swal.fire({
+                icon: 'success',
+                title: 'Pesanan Dibayar!',
+                text: 'Silakan konfirmasi ke kasir.',
+                confirmButtonText: 'Oke',
+                timer: 3000,
+                timerProgressBar: true
+              });
+              
+              qrSection.classList.add("d-none");
+              confirmBtn.classList.add("d-none");
+              payBtn.disabled = false;
+              document.getElementById("cartModal").click();
+              clearCart();
+            }, 100); // Biarkan animasi jalan 2 detik
+          });
+          
+        
+          function clearCart() {
+            cart = [];
+            updateCart();
+          }
+                // Fungsi untuk menampilkan section
+        function showSection(sectionId) {
+            // Sembunyikan semua section
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // Tampilkan section yang diklik
+            document.getElementById(sectionId).style.display = 'block';
+
+            // Hapus class 'active' dari semua menu
+            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+
+            // Tambahkan class 'active' ke menu yang diklik
+            document.querySelectorAll('.nav-link').forEach(link => {
+                if (link.getAttribute('onclick').includes(sectionId)) {
+                    link.parentElement.classList.add('active');
+                }
+            });
+        }
+
+        // Tambahkan event listener ke semua link navbar
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault(); // Mencegah reload halaman
+
+                // Ambil ID section yang sesuai dari atribut onclick
+                let sectionId = this.getAttribute('onclick').match(/'([^']+)'/)[1];
+
+                // Panggil fungsi untuk menampilkan section yang sesuai
+                showSection(sectionId);
+            });
+        });
+
+        const cartButton = document.getElementById('cart-btn');
+        const coffeeAnim = document.getElementById('coffee-anim');
+      
+        function animateToCart() {
+          // Start position: center of screen
+          const startX = window.innerWidth / 2 - 25;
+          const startY = window.innerHeight / 2 - 25;
+      
+          // End position: cart button position
+          const cartRect = cartButton.getBoundingClientRect();
+          const endX = cartRect.left + cartRect.width / 2 - 25;
+          const endY = cartRect.top + cartRect.height / 2 - 25;
+      
+          // Show and position anim
+          coffeeAnim.style.left = `${startX}px`;
+          coffeeAnim.style.top = `${startY}px`;
+          coffeeAnim.style.display = 'block';
+      
+          // Animate with transition
+          coffeeAnim.style.transition = 'transform 1s ease, left 1s ease, top 1s ease';
+          requestAnimationFrame(() => {
+            coffeeAnim.style.left = `${endX}px`;
+            coffeeAnim.style.top = `${endY}px`;
+            coffeeAnim.style.transform = 'scale(0.5) rotate(360deg)';
+          });
+      
+          // Hide after animation
+          setTimeout(() => {
+            coffeeAnim.style.display = 'none';
+            coffeeAnim.style.transition = '';
+            coffeeAnim.style.transform = '';
+          }, 1000);
+        }
+        document.querySelectorAll('.product-card button').forEach(button => {
+          button.addEventListener('click', () => {
+            // Tambah ke cart logika...
+            cartButton.classList.add('shake');
+            setTimeout(() => {
+            cartButton.classList.remove('shake');
+          }, 500);
+
+            animateToCart(); // 🎯 Tambahin ini!
+          });
+        });
+    
+        
+
+       
+       
+        
+    </script>
+  
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+      categoryButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const start = performance.now();
+    
+          // Simulasi logic pengganti (misalnya filter menu)
+          console.log(`Tombol kategori '${button.dataset.category}' diklik`);
+    
+          const end = performance.now();
+          const duration = end - start;
+    
+          console.log(`⏱️ Waktu respons tombol kategori (${button.dataset.category}): ${duration.toFixed(2)} ms`);
+        });
+      });
+
+
+       // Tombol NAV
+  document.querySelectorAll('.nav-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const start = performance.now();
+      const section = btn.dataset.section;
+      console.log(`Navigasi ke '${section}'`);
+      const end = performance.now();
+      console.log(`⏱️ Nav '${section}': ${(end - start).toFixed(2)} ms`);
+    });
+  });
+
+  // Tombol KATEGORI
+  document.querySelectorAll('.category-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const start = performance.now();
+      const category = btn.dataset.category;
+      console.log(`Kategori '${category}' diklik`);
+
+      // Class active pindah
+      document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const end = performance.now();
+      console.log(`⏱️ Kategori '${category}': ${(end - start).toFixed(2)} ms`);
+    });
+  });
+
+  // Tombol TAMBAH +
+  document.querySelectorAll('.add-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const start = performance.now();
+      const product = btn.dataset.product;
+      console.log(`Tombol + untuk '${product}'`);
+
+      const end = performance.now();
+      console.log(`⏱️ Tambah '${product}': ${(end - start).toFixed(2)} ms`);
+    });
+  });
+
+  // Tombol CART
+  document.querySelectorAll('.cart-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const start = performance.now();
+      console.log("Tombol Cart diklik");
+      const end = performance.now();
+      console.log(`⏱️ Cart: ${(end - start).toFixed(2)} ms`);
+    });
+  });
+    </script>
+    
+</body>
+</html>
