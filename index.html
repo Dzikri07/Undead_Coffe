@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Landing Page Café</title>
+    <title>Undead Café</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
     <style>
@@ -22,24 +22,24 @@
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-custom" style="padding: 10px;">
-        <div class="container">
-          <a class="navbar-brand d-flex align-items-center gap-2" href="#" style="overflow: hidden; height: 48px;">
-            <img src="logo.png" alt="logo" style="height: 64px; margin-top: -8px; margin-left: -12px;">
-            <h4 class="mb-0">Undead Espresso</h4>
-          </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link nav-btn" href="#" onclick="showSection('home')">Home</a></li>
-                    <li class="nav-item"><a class="nav-link nav-btn" href="#" onclick="showSection('article')">article</a></li>
-                    <li class="nav-item"><a class="nav-link nav-btn" href="#" onclick="showSection('shop')">shop</a></li>
-                    <li class="nav-item"><a class="nav-link nav-btn" href="#" onclick="showSection('about')">About</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="#" style="overflow: hidden; height: 48px;">
+          <img src="logo2.png" alt="logo" style="height: 64px; margin-top: -8px; margin-left: -12px;">
+          <h4 class="mb-0">Undead Espresso</h4>
+        </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                  <li class="nav-item"><a class="nav-link nav-btn" href="#" onclick="showSection('home')">Home</a></li>
+                  <li class="nav-item"><a class="nav-link nav-btn" href="#" onclick="showSection('article')">Article</a></li>
+                  <li class="nav-item"><a class="nav-link nav-btn" href="#" onclick="showSection('shop')">Shop</a></li>
+                  <li class="nav-item"><a class="nav-link nav-btn" href="#" onclick="showSection('about')">About</a></li>
+              </ul>
+          </div>
+      </div>
+  </nav>
 
     <!-- Section menu -->
 <section id="shop" class="container mt-4 section " style="background-color: #D8C5BB;">
@@ -141,6 +141,70 @@
               </div>
             </div>
           </div>
+    <!-- CARD KOPI TUBRUK -->
+    <div class="card flex-shrink-0 product-card d-flex flex-row align-items-center" style="min-width: 350px; max-width: 400px; background-color: #F7DED1;">
+      <div class="image-box p-2" style="width: 150px; height: 150px; flex-shrink: 0;">
+        <img src="tubruk.jpg" class="img-fluid rounded" alt="Kopi Tubruk" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+      <div class="card-body py-2 pe-3 d-flex flex-column justify-content-between" style="width: 100%;">
+        <div>
+          <span class="badge bg-warning text-dark mb-1">Paket Kombo</span>
+          <h6 class="mb-1">Kopi Tubruk + Hidangan</h6>
+          <p class="mb-1 text-muted small">Pilih 1 hidangan untuk menemani kopi</p>
+        </div>
+        <div class="d-flex justify-content-between align-items-center">
+          <p class="mb-0"><strong>Rp. 25.000</strong></p>
+          <button class="btn btn-sm btn-dark" data-bs-toggle="modal" data-bs-target="#modalHidangan"><i class="fas fa-exchange-alt"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL PILIH HIDANGAN -->
+    <div class="modal fade" id="modalHidangan" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalLabel">Pilih Satu Hidangan</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+          </div>
+          <div class="modal-body">
+            <form id="formHidangan">
+              <div class="form-check mb-3 d-flex align-items-center">
+                <input class="form-check-input me-2" type="radio" name="hidangan" id="redVelvet" value="Red Velvet" required>
+                <label class="form-check-label d-flex align-items-center" for="redVelvet">
+                  <img src="cake1.jpg" alt="Red Velvet" class="rounded me-2" style="width: 80px; height: 80px; object-fit: cover;">
+                  Red Velvet Cake
+                </label>
+              </div>
+              <div class="form-check mb-3 d-flex align-items-center">
+                <input class="form-check-input me-2" type="radio" name="hidangan" id="kueLapis" value="Kue Lapis">
+                <label class="form-check-label d-flex align-items-center" for="kueLapis">
+                  <img src="lapis.jpg" alt="Kue Lapis" class="rounded me-2" style="width: 80px; height: 80px; object-fit: cover;">
+                  Kue Lapis Tradisional
+                </label>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+            <button class="btn btn-primary" onclick="konfirmasiHidangan()">Konfirmasi</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JS: Menangani konfirmasi -->
+    <script>
+      function konfirmasiHidangan() {
+        const pilihan = document.querySelector('input[name="hidangan"]:checked');
+        if (pilihan) {
+          alert("Kamu memilih: " + pilihan.value);
+          const modal = bootstrap.Modal.getInstance(document.getElementById('modalHidangan'));
+          modal.hide();
+        }
+      }
+    </script>
+
 
           <div class="card flex-shrink-0 product-card d-flex flex-row align-items-center" data-category="coffee" data-subcategory="espresso" style="min-width: 350px; max-width: 400px; background-color: #F7DED1;">
             <div class="image-box p-2" style="width: 150px; height: 150px; flex-shrink: 0;">
@@ -354,7 +418,7 @@
   <!-- === PAGE DESSERT === -->
   <div id="page-dessert" class="d-none">
     <section class="special-offer-section py-4 px-3">
-      <h5 class="mb-3">🍰 Special Offer - Desseraat</h5>
+      <h5 class="mb-3">🍰 Special Offer - Dessert</h5>
       <div class="carousel-track d-flex overflow-auto gap-3 pb-2">
         <div class="card flex-shrink-0 product-card" data-category="dessert" style="min-width: 250px;">
           <img src="cake1.jpg" class="card-img-top" alt="Red Velvet Slice">
@@ -375,7 +439,20 @@
             <button class="btn btn-sm btn-dark">+</button>
           </div>
         </div>
+
+        
+        <div class="card flex-shrink-0 product-card" data-category="dessert" style="min-width: 250px;">
+          <img src="cokie.png" class="card-img-top" alt="Butter Croissant">
+          <div class="card-body">
+            <span class="badge bg-warning text-dark">recomended</span>
+            <h6 class="mt-2">Cookies</h6>
+            <p class="mb-2">Rp. 75.000</p>
+            <button class="btn btn-sm btn-dark">+</button>
+          </div>
+        </div>
       </div>
+
+      
     </section>
   </div>
   <!-- Modal Cart -->
@@ -451,7 +528,7 @@
 
 
     <!-- Section article -->
-    <section id="article" class="container mt-5 section p-4" style="max-width: 900px; margin: auto;">
+    <section id="article" class="container mt-5 section p-4" style="max-width: 900px; margin: auto; text-align: justify;">
             <h2 class="fw-bold mb-3">Sejarah Kopi: Dari Biji ke Cangkir</h2>
             <p>Kopi pertama kali ditemukan di Ethiopia sekitar abad ke-9, ketika seorang gembala bernama Kaldi melihat kambingnya menjadi lebih berenergi setelah makan biji merah dari pohon kopi. </p>
             <div class="text-center">
@@ -552,69 +629,184 @@
 
           <div class="d-flex flex-column align-items-center justify-content-center text-center" style="min-height: 200px; background-color: #EACDBD;">
             <div class="card-body">
-              <img src="logo.png" alt="Logo" style="width: 120px; height: auto; margin-bottom: 10px;">
-                <h5 class="card-title">Coffe Menu</h5>
+              <div class="text-center" style="background-color: #EACDBD; padding: -20px;">
+                &nbsp;<img src="logo.png" alt="Logo" style="
+                  display: block;
+                  margin: 0 auto 10px;
+                  width: 220px; 
+                  height: auto;
+                ">
+                <h5 class="card-title">Coffee Menu</h5>
                 <p class="card-text">Kami Menyajikan Kopi Terbaik Dengan Biji Pilihan</p>
             </div>
         </div>
         
-         <!-- Grid Menu -->
-        <div class="row mt-4 text-center justify-content-center">
-            <div class="col-6 col-md-4 col-lg-3 mb-4">
-                <div class="card menu-card">
-                    <img src="frap.png" class="card-img-top" alt="Latte">
-                    <div class="card-body">
-                        <h5 class="card-title">Latte</h5>
-                        <p class="card-text">Kombinasi sempurna antara espresso dan susu yang creamy.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3 mb-4">
-                <div class="card menu-card">
-                    <img src="espreso.png" class="card-img-top" alt="Espresso">
-                    <div class="card-body">
-                        <h5 class="card-title">Espresso</h5>
-                        <p class="card-text">Minuman kopi dengan rasa yang kuat dan aroma khas.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3 mb-4">
-                <div class="card menu-card">
-                    <img src="capucino.png" class="card-img-top" alt="Cappuccino">
-                    <div class="card-body">
-                        <h5 class="card-title">Cappuccino</h5>
-                        <p class="card-text">Kopi berbasis espresso namun lebih berbusa karena susu.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3 mb-4">
-                <div class="card menu-card">
-                    <img src="ice.png" class="card-img-top" alt="Iced Latte">
-                    <div class="card-body">
-                        <h5 class="card-title">Iced Latte</h5>
-                        <p class="card-text">Kombinasi sempurna antara espresso dan susu yang creamy.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3 mb-4">
-                <div class="card menu-card">
-                    <img src="capucino.png" class="card-img-top" alt="Americano">
-                    <div class="card-body">
-                        <h5 class="card-title">Americano</h5>
-                        <p class="card-text">Espresso yang ditambahkan air panas, cocok dengan cookies.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3 mb-4">
-                <div class="card menu-card">
-                    <img src="moca.png" class="card-img-top" alt="Mocha">
-                    <div class="card-body">
-                        <h5 class="card-title">Mocha</h5>
-                        <p class="card-text">Kopi yang nikmat jika sedang hujan dan menghangatkan tubuh.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+    
+      <!-- Modal Section -->
+      <!-- Modal Latte -->
+    <!-- Grid Menu -->
+<div class="row mt-4 text-center justify-content-center">
+
+  <!-- LATTE -->
+  <div class="col-6 col-md-4 col-lg-3 mb-4">
+      <div class="card menu-card">
+          <img src="frap.png" class="card-img-top" alt="Latte" data-bs-toggle="modal" data-bs-target="#modalLatte">
+          <div class="card-body">
+              <h5 class="card-title">Latte</h5>
+              <p class="card-text">Espresso lembut dengan banyak susu, cocok buat santai.</p>
+          </div>
+      </div>
+  </div>
+
+  <!-- ESPRESSO -->
+  <div class="col-6 col-md-4 col-lg-3 mb-4">
+      <div class="card menu-card">
+          <img src="espreso.png" class="card-img-top" alt="Espresso" data-bs-toggle="modal" data-bs-target="#modalEspresso">
+          <div class="card-body">
+              <h5 class="card-title">Espresso</h5>
+              <p class="card-text">Kopi murni yang kuat dan pekat untuk penyuka rasa bold.</p>
+          </div>
+      </div>
+  </div>
+
+  <!-- CAPPUCCINO -->
+  <div class="col-6 col-md-4 col-lg-3 mb-4">
+      <div class="card menu-card">
+          <img src="capucino.png" class="card-img-top" alt="Cappuccino" data-bs-toggle="modal" data-bs-target="#modalCappuccino">
+          <div class="card-body">
+              <h5 class="card-title">Cappuccino</h5>
+              <p class="card-text">Espresso berbusa yang creamy dan ringan di lidah.</p>
+          </div>
+      </div>
+  </div>
+
+  <!-- ICED LATTE -->
+  <div class="col-6 col-md-4 col-lg-3 mb-4">
+      <div class="card menu-card">
+          <img src="ice.png" class="card-img-top" alt="Iced Latte" data-bs-toggle="modal" data-bs-target="#modalIcedLatte">
+          <div class="card-body">
+              <h5 class="card-title">Iced Latte</h5>
+              <p class="card-text">Segarnya latte dingin untuk hari yang panas.</p>
+          </div>
+      </div>
+  </div>
+
+  <!-- AMERICANO -->
+  <div class="col-6 col-md-4 col-lg-3 mb-4">
+      <div class="card menu-card">
+          <img src="capucino.png" class="card-img-top" alt="Americano" data-bs-toggle="modal" data-bs-target="#modalAmericano">
+          <div class="card-body">
+              <h5 class="card-title">Americano</h5>
+              <p class="card-text">Espresso yang dicampur air panas, ringan tapi nendang.</p>
+          </div>
+      </div>
+  </div>
+
+  <!-- MOCHA -->
+  <div class="col-6 col-md-4 col-lg-3 mb-4">
+      <div class="card menu-card">
+          <img src="moca.png" class="card-img-top" alt="Mocha" data-bs-toggle="modal" data-bs-target="#modalMocha">
+          <div class="card-body">
+              <h5 class="card-title">Mocha</h5>
+              <p class="card-text">Perpaduan kopi dan coklat yang manis dan creamy.</p>
+          </div>
+      </div>
+  </div>
+
+</div>
+
+<!-- Modal Latte -->
+<div class="modal fade" id="modalLatte" tabindex="-1" aria-labelledby="modalLatteLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered">
+  <div class="modal-content">
+    <div class="modal-header"><h5 class="modal-title">Latte</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+    <div class="modal-body text-center">
+      <img src="frap.png" class="img-fluid mb-3" alt="Latte">
+      <p>Latte adalah campuran espresso dan susu steam yang lembut.</p>
+      <p><strong>Komposisi:</strong> 25% espresso, 75% susu</p>
+      <p><strong>Kafein:</strong> Sedang</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Modal Espresso -->
+<div class="modal fade" id="modalEspresso" tabindex="-1" aria-labelledby="modalEspressoLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered">
+  <div class="modal-content">
+    <div class="modal-header"><h5 class="modal-title">Espresso</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+    <div class="modal-body text-center">
+      <img src="espreso.png" class="img-fluid mb-3" alt="Espresso">
+      <p>Espresso adalah kopi pekat hasil ekstraksi cepat biji kopi.</p>
+      <p><strong>Komposisi:</strong> 100% kopi</p>
+      <p><strong>Kafein:</strong> Tinggi</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Modal Cappuccino -->
+<div class="modal fade" id="modalCappuccino" tabindex="-1" aria-labelledby="modalCappuccinoLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered">
+  <div class="modal-content">
+    <div class="modal-header"><h5 class="modal-title">Cappuccino</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+    <div class="modal-body text-center">
+      <img src="capucino.png" class="img-fluid mb-3" alt="Cappuccino">
+      <p>Cappuccino punya lapisan foam tebal yang creamy.</p>
+      <p><strong>Komposisi:</strong> 30% espresso, 30% susu, 40% foam</p>
+      <p><strong>Kafein:</strong> Sedang</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Modal Iced Latte -->
+<div class="modal fade" id="modalIcedLatte" tabindex="-1" aria-labelledby="modalIcedLatteLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered">
+  <div class="modal-content">
+    <div class="modal-header"><h5 class="modal-title">Iced Latte</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+    <div class="modal-body text-center">
+      <img src="ice.png" class="img-fluid mb-3" alt="Iced Latte">
+      <p>Iced Latte adalah versi dingin dari latte, segar dan ringan.</p>
+      <p><strong>Komposisi:</strong> 25% espresso, 65% susu, 10% es</p>
+      <p><strong>Kafein:</strong> Sedang</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Modal Americano -->
+<div class="modal fade" id="modalAmericano" tabindex="-1" aria-labelledby="modalAmericanoLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered">
+  <div class="modal-content">
+    <div class="modal-header"><h5 class="modal-title">Americano</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+    <div class="modal-body text-center">
+      <img src="capucino.png" class="img-fluid mb-3" alt="Americano">
+      <p>Americano adalah espresso yang dicampur air panas, rasanya ringan tapi tetap kopi.</p>
+      <p><strong>Komposisi:</strong> 30% espresso, 70% air panas</p>
+      <p><strong>Kafein:</strong> Sedang</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Modal Mocha -->
+<div class="modal fade" id="modalMocha" tabindex="-1" aria-labelledby="modalMochaLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered">
+  <div class="modal-content">
+    <div class="modal-header"><h5 class="modal-title">Mocha</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+    <div class="modal-body text-center">
+      <img src="moca.png" class="img-fluid mb-3" alt="Mocha">
+      <p>Mocha memadukan rasa kopi dan coklat, manis dan creamy.</p>
+      <p><strong>Komposisi:</strong> 40% espresso, 30% coklat, 30% susu</p>
+      <p><strong>Kafein:</strong> Sedang</p>
+    </div>
+  </div>
+</div>
+</div>
+
+      </div>
+
         
         <!-- Tombol Pesan -->
         <div class="d-flex justify-content-center mt-4">
@@ -629,7 +821,7 @@
 <!-- Konten Highlight Box -->
 <div class="highlight-box d-flex align-items-center mb-4">
   <img src="coffelogo.png" alt="Logo Kopi" class="me-3" style="width: 200px;" />
-  <div class="highlight-text">
+  <div class="highlight-text text-start">
     <h3>Sejarah kopi</h3>
     <p>
       Kopi pertama kali ditemukan di Ethiopia sekitar abad ke-9, ketika seorang gembala bernama Kaldi melihat kambingnya menjadi lebih berenergi setelah makan biji merah dari pohon kopi.
@@ -639,12 +831,10 @@
   </div>
 </div>
 
-
-
 <!-- Combo Cookies Maniac -->
 <div class="highlight-box d-flex align-items-center flex-row-reverse mb-4">
   <img src="cookies.png" alt="Cookie" class="ms-3" style="width: 150px;" />
-  <div class="highlight-text">
+  <div class="highlight-text text-end">
     <h3>Combo Cookies Maniac</h3>
     <p>
       Combo cookies maniac adalah ungkapan rasa senang ketika seseorang merasakan nikmatnya memakan cookies dengan kopi.
@@ -726,48 +916,51 @@ Di Undead Espresso, kami menjaga warisan rasa itu. Cookies kami dibuat dari baha
     <!-- section about -->
     <section id="about" class="container mt-5 section p-4" style="max-width: 900px; margin: auto;">
         <div class="container">
-            <div class="row align-items-center">
-              <!-- Kiri: Teks -->
-              <div class="col-md-8">
-                <h2 class="mb-3">About</h2>
-                <h4 class="fw-bold" style="color: #5a3e2b;">Undead espresso</h4>
-                <p>
-                  Selamat datang di Undead Espresso, tempat di mana kopi bukan sekadar minuman, tapi sebuah ritual untuk menghidupkan kembali semangat!
-                </p>
-                <p>
-                  Di sini, kami menyajikan racikan kopi terbaik yang bisa membulatkan harimu. Dengan biji pilihan dan metode seduh khas, setiap tegukan membawa pengalaman rasa yang kuat, mendalam, dan tak terlupakan.
-                </p>
-                <p>
-                  Kami percaya bahwa kopi bukan sekadar kafein, tapi juga seni, cerita, dan atmosfer yang membuat orang ingin kembali lagi. Jadi, apakah kamu siap untuk revival dengan segelas kopi dari dunia undead?
-                </p>
-        
-                <blockquote class="blockquote mt-4" style="color: #5a3e2b;">
-                  <p class="mb-0">☕ Undead Espresso — Where Every Sip Brings You Back to Life.</p>
-                </blockquote>
-        
-                <h5 class="mt-5">Contact me</h5>
-                <form>
-                  <div class="row mb-3">
-                    <div class="col">
-                      <input type="text" class="form-control" placeholder="First name">
-                    </div>
-                    <div class="col">
-                      <input type="text" class="form-control" placeholder="Last name">
-                    </div>
+          <div class="row align-items-center">
+            <!-- Kiri: Teks -->
+            <div class="col-md-8">
+              <h2 class="mb-3">About</h2>
+              <h4 class="fw-bold" style="color: #5a3e2b;">Undead espresso</h4>
+              <p style="text-align: justify;">
+                Selamat datang di Undead Espresso, tempat di mana kopi bukan sekadar minuman, tapi sebuah ritual untuk menghidupkan kembali semangat!
+              </p>
+              <p style="text-align: justify;">
+                Di sini, kami menyajikan racikan kopi terbaik yang bisa membulatkan harimu. Dengan biji pilihan dan metode seduh khas, setiap tegukan membawa pengalaman rasa yang kuat, mendalam, dan tak terlupakan.
+              </p>
+              <p style="text-align: justify;">
+                Kami percaya bahwa kopi bukan sekadar kafein, tapi juga seni, cerita, dan atmosfer yang membuat orang ingin kembali lagi. Jadi, apakah kamu siap untuk revival dengan segelas kopi dari dunia undead?
+              </p>
+          
+              <blockquote class="blockquote mt-4" style="color: #5a3e2b;">
+                <p class="mb-0">☕ Undead Espresso — Where Every Sip Brings You Back to Life.</p>
+              </blockquote>
+          
+              <h5 class="mt-5">Contact me</h5>
+              <form action="https://formsubmit.co/zikri.muhammad1278@gmail.com" method="POST">
+                <div class="row mb-3">
+                  <div class="col">
+                    <input type="text" class="form-control" name="first_name" placeholder="First name" required>
                   </div>
-                  <div class="mb-3">
-                    <input type="email" class="form-control" placeholder="Email address">
+                  <div class="col">
+                    <input type="text" class="form-control" name="last_name" placeholder="Last name" required>
                   </div>
-                  <div class="mb-3">
-                    <textarea class="form-control" rows="4" placeholder="Enter your question or message"></textarea>
-                  </div>
-                  <button type="submit" class="btn" style="background-color: #5a3e2b; color: white;">Submit</button>
-                </form>
-              </div>
-              <div class="col-md-4 text-center d-flex align-items-start justify-content-center">
-                <img src="logo.png" alt="Undead Espresso Logo" class="img-fluid" style="width: 500px; margin-top: 10px;">
-              </div>
+                </div>
+                <div class="mb-3">
+                  <input type="email" class="form-control" name="email" placeholder="Email address" required>
+                </div>
+                <div class="mb-3">
+                  <textarea class="form-control" name="message" rows="4" placeholder="Enter your question or message" required></textarea>
+                </div>
+                <button type="submit" id="submit-contact" class="btn">Submit</button>
+              </form>
             </div>
+          
+            <!-- Kanan: Logo -->
+            <div class="col-md-4 text-center d-flex align-items-start justify-content-center">
+              <img src="logo.png" alt="Undead Espresso Logo" class="img-fluid" style="width: 500px; margin-top: 10px;">
+            </div>
+          </div>
+          
           </div>
     </section>
 
@@ -788,7 +981,7 @@ Di Undead Espresso, kami menjaga warisan rasa itu. Cookies kami dibuat dari baha
         <div class="footer-col">
           <h4>Products</h4>
           <ul>
-            <li><a href="#">Shows</a></li>
+            <li><a href="#">dessert</a></li>
             <li><a href="#">Coffee</a></li>
           </ul>
         </div>
@@ -796,9 +989,8 @@ Di Undead Espresso, kami menjaga warisan rasa itu. Cookies kami dibuat dari baha
         <div class="footer-col">
           <h4>Category</h4>
           <ul>
-            <li><a href="#">Men</a></li>
-            <li><a href="#">Shop</a></li>
-            <li><a href="#">Weekly Pick</a></li>
+            <li><a href="#">dessert</a></li>
+            <li><a href="#">coffe</a></li>
           </ul>
         </div>
     
@@ -806,10 +998,7 @@ Di Undead Espresso, kami menjaga warisan rasa itu. Cookies kami dibuat dari baha
           <h4>Company info</h4>
           <ul>
             <li><a href="#">About us</a></li>
-            <li><a href="#">Santoryuu</a></li>
             <li><a href="#">Support</a></li>
-            <li><a href="#">Voucher</a></li>
-            <li><a href="#">Track creator</a></li>
           </ul>
         </div>
     
@@ -823,6 +1012,13 @@ Di Undead Espresso, kami menjaga warisan rasa itu. Cookies kami dibuat dari baha
         </div>
       </div>
     </footer>
+
+        <!-- Scroll to Top Button -->
+    <button id="scrollToTopBtn">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+
     <!-- JavaScript -->
       <script>
         const payBtn = document.getElementById("pay-btn");
@@ -967,6 +1163,23 @@ Di Undead Espresso, kami menjaga warisan rasa itu. Cookies kami dibuat dari baha
         
     </script>
   
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const categoryButtons = document.querySelectorAll(".category-btn");
+        const subCategoryDiv = document.getElementById("kategori_lanjutan");
+    
+        categoryButtons.forEach(btn => {
+          btn.addEventListener("click", function () {
+            const category = btn.dataset.category;
+            if (category === "dessert") {
+              subCategoryDiv.classList.add("hidden");
+            } else if (category === "coffee") {
+              subCategoryDiv.classList.remove("hidden");
+            }
+          });
+        });
+      });
+    </script>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
@@ -1277,5 +1490,25 @@ function clearCart() {
           }
         });
       </script>
+
+      <script>
+        const scrollBtn = document.getElementById("scrollToTopBtn");
+      
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 500) {
+            scrollBtn.classList.add("show");
+          } else {
+            scrollBtn.classList.remove("show");
+          }
+        });
+      
+        scrollBtn.addEventListener("click", () => {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+          });
+        });
+      </script>
+      
 </body>
 </html>
